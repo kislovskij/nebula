@@ -1,7 +1,7 @@
 COMPOSE=$(shell which docker-compose || echo "docker compose")
 SERVER_IMAGE=nebulabroadcast/nebula-server:latest
 WORKER_IMAGE=nebulabroadcast/nebula-worker:latest
-SERVER_CONTAINER=backend
+SERVER_CONTAINER=server
 WORKER_CONTAINER=worker
 
 .PHONY: dbshell setup reload

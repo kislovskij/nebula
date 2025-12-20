@@ -20,10 +20,9 @@ class Password(nebula.plugins.CLIPlugin):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.console = Console()
-        self.console.print(CHANGE_PASSWORD_INTRO)
 
     async def main(self):
-
+        self.console.print(CHANGE_PASSWORD_INTRO)
         user: nebula.User | None = None
         while True:
             try:

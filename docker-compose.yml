@@ -1,25 +1,23 @@
-version: "3.3"
-
 volumes:
   db: {}
 
 services:
   postgres:
-    image: postgres
+    image: postgres:18
     environment:
       - "POSTGRES_USER=nebula"
       - "POSTGRES_PASSWORD=nebula"
       - "POSTGRES_DB=nebula"
     volumes:
       - "/etc/localtime:/etc/localtime:ro"
-      - "db:/var/lib/postgresql/data"
+      - "db:/var/lib/postgresql"
     restart: unless-stopped
 
   redis:
     image: redis:alpine
     restart: unless-stopped
 
-  backend:
+  server:
     image: nebulabroadcast/nebula-server:latest
     ports:
       - "4455:80"
@@ -41,4 +39,4 @@ services:
     privileged: true
 
     depends_on:
-      - backend
+      - server
