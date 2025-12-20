@@ -37,9 +37,9 @@ class Users(nebula.plugins.CLIPlugin):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.console = Console()
-        self.console.print(NEW_USER_INTRO)
 
     async def main(self):
+        self.console.print(NEW_USER_INTRO)
         username = await self.prompt("Username", validate_username)
         email = await self.prompt("Email", validate_email)
 
