@@ -18,11 +18,11 @@ Before you begin, you should have the following:
 Updating docker-compose
 -----------------------
 
-In the docker-compose.yml file, remove the volume definitions for both the backend and server services that point to the storages directory:
+In the docker-compose.yml file, remove the volume definitions for both the server and worker services that point to the storages directory:
 
 ```yaml
 services:
-  backend:
+  server:
     volumes:
       # Remove this line
       - ./storages:/mnt/nebula_01
