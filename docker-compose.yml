@@ -30,6 +30,20 @@ services:
       - redis
       - postgres
 
+
+  hls-server:
+    image: nginx:alpine
+    container_name: nebula-hls
+    restart: unless-stopped
+    volumes:
+      - nebula-storage:/srv/nebula:ro
+      - ./nginx-hls.conf:/etc/nginx/conf.d/default.conf:ro
+    networks:
+      - coolify
+    depends_on:
+      - server
+      - worker
+
   worker:
     image: nebulabroadcast/nebula-worker:latest
     hostname: worker
