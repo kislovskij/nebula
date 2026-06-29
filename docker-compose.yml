@@ -33,7 +33,8 @@ services:
 
   hls-server:
     image: nginx:alpine
-    container_name: nebula-hls
+    ports:
+      - "80:80"
     restart: unless-stopped
     volumes:
       - nebula-storage:/srv/nebula:ro
