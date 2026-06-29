@@ -20,7 +20,7 @@ services:
   server:
     image: nebulabroadcast/nebula-server:latest
     ports:
-      - "4455:80"
+      - "8000:80"
     volumes:
       - "/etc/localtime:/etc/localtime:ro"
       - "./plugins:/plugins"
